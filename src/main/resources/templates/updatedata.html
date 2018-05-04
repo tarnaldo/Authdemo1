@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Spring Security - OAuth 2.0 Demo Scope Driving Authorities</title>
+   <meta charset="utf-8" />
+</head>
+<body>
+<div th:replace="index::logout"></div>
+<h1>OAuth 2.0 Demo</h1>
+<div>
+   <span style="font-weight:bold">Form Entries - Manager Authority to Update:</span>
+   <ul>
+<div>
+Private Data One: <span style="font-weight:bold" th:text="${privateData1}"></span>
+<ul>
+</div>
+<div>
+Private Data Two: <span style="font-weight:bold" th:text="${privateData2}"></span>
+<ul>
+</div>
+    </ul>
+</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+</ul>
+
+</body>
+</html>

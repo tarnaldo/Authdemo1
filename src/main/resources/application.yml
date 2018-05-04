@@ -1,0 +1,41 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,env,mappings,httptrace,conditions,logfile,scheduledtasks,jolokia,shutdown
+  endpoint:
+    health:
+      show-details: when-authorized
+    shutdown:
+      enabled: true
+---
+spring:
+  profiles:
+    active: local
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: 2BTgavXozh6tbQBIrmdx6hCWARjsphAM
+            client-secret: JEOCO4VxgFFLs-4ntOAm60dzNeVgjET9Lum4Pv0QDIMK92mxgr4AMDL3RUhKqULg
+            authorization-grant-type: authorization_code
+            redirect-uri-template: https://localhost:8443/login/oauth2/code/auth0
+            scope: openid profile email 
+            clientName: OIDC Example App Login (using Auth0)
+        provider:
+          auth0:
+            authorization-uri: https://blackstrap.auth0.com/authorize
+            token-uri: https://blackstrap.auth0.com/oauth/token
+            user-info-uri: https://blackstrap.auth0.com/userinfo
+            user-name-attribute: name
+            jwk-set-uri: https://blackstrap.auth0.com/.well-known/jwks.json
+      api: 
+        auth0:
+          authorization-grant-type: client_credentials
+          audience: authdemo2
+          api-update-uri: https://localhost:9443/api/v1/updateData
+          api-read-uri: https://localhost:9443/api/v1/readData
+            

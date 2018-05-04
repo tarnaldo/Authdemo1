@@ -1,0 +1,13 @@
+logging:
+  level:
+    com.auth.demo: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.reactive: DEBUG
+    
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:local/keystore.p12
+    key-store-password: changeit
+    keyStoreType: PKCS12
+    keyAlias: tomcat
